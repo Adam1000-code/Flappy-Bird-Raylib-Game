@@ -32,11 +32,3 @@ int main()
     
     return 0;
 }
-
-void pipes(int x, int y)
-{
-}
-
-void player(const int gravity, double y )
-{
-}
