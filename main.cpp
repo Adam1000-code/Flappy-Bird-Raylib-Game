@@ -32,3 +32,13 @@ int main()
     
     return 0;
 }
+
+// TOUCH AND DIE
+void player(const double gravity = 2, int y)
+{
+    
+}
+
+void pipes(int x, int y)
+{
+}
