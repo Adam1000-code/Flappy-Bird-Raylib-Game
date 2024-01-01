@@ -8,7 +8,7 @@ using namespace std;
 const int screenWidth = 800;
 const int screenHeight = 450;
 
-const double playerX;
+const double playerX = 0;
 double playerY;
 
 int main()
