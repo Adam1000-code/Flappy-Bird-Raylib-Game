@@ -9,8 +9,9 @@ const double playerX = 0;
 double playerY;
 const double gameGravity = 2;
 
-void Player(Texture2D player, int y)
+void Player(Texture2D player, int y, double gravity)
 {
+    gravity = gameGravity;
     DrawTexture(player, 0, y, WHITE);
 }
 
