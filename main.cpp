@@ -27,14 +27,14 @@ int main()
     
     while(!WindowShouldClose())
     {
-        /*player.velocity.y += gravity;
+        player.velocity.y += gravity;
         player.position.y += player.velocity.y;
         
         if(player.position.y >= screenHeight - 25)
         {
             player.position.y = screenHeight - 25;
             player.velocity.y = 0;
-        }*/
+        }
         
         BeginDrawing();
             ClearBackground(RAYWHITE);
