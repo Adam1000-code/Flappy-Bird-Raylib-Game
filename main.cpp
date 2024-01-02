@@ -2,7 +2,7 @@
 
 const float gravity = 0.2f;
 
-float jumpForce = (2.1f);
+float jumpForce = 6.4f;
 
 const double screenWidth = 800;
 const double screenHeight = 450;
@@ -37,10 +37,16 @@ int main()
             player.position.y = screenHeight - 25;
             player.velocity.y = 0;
         }
+        /*else if(player.position.y >= screenHeight - 25)
+        {
+            player.position.y = screenHeight - 25;
+            player.velocity.y = 0;
+        }*/
         
         if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsKeyPressed(KEY_SPACE))
         {
-            player.velocity.y -= jumpForce * gravity;
+            player.velocity.y -= jumpForce;
+            player.position.y += player.velocity.y;
         }
         
         BeginDrawing();
