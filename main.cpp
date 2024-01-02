@@ -4,27 +4,33 @@ const int screenWidth = 1280;
 const int screenHeight = 720;
 
 const double playerX = 0;
-double playerY;
+double playerY = 0;
 const double gameGravity = 2;
 
-void Player(Texture2D player, int y, double gravity)
+struct Player {
+    Vector2 position;
+    Vector2 velocity;
+};
+
+/*void Player(Texture2D player, int y, double gravity)
 {
-    DrawTexture(player, 0 / 2, y, WHITE);
-}
+    playerY += gravity;
+}*/
 
 int main()
 {
-    playerY = screenHeight;
+    float deltaTime = GetFrameTime();
+    
     InitWindow(screenWidth, screenHeight, "Flappy Boi");
     
-    Texture2D playerSprite = LoadTexture("player.png");
+    Texture2D playerSprite = LoadTexture("player2.png");
     
     SetTargetFPS(60);
     
     while(!WindowShouldClose())
     {
         BeginDrawing();
-            Player(playerSprite, playerY / 1.8, gameGravity);
+            DrawTexture(playerSprite, playerX / 2, playerY /2, WHITE);
         EndDrawing();
     }
     
