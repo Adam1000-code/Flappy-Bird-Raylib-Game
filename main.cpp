@@ -32,16 +32,17 @@ int main()
         player.velocity.y += gravity;
         player.position.y += player.velocity.y;
         
-        if(player.position.y >= screenHeight - 25)
+        //collisions
+        if(player.position.y >= screenHeight - 40)
         {
-            player.position.y = screenHeight - 25;
+            player.position.y = screenHeight - 40;
             player.velocity.y = 0;
         }
-        /*else if(player.position.y >= screenHeight - 25)
+        else if(player.position.y <= 12)
         {
-            player.position.y = screenHeight - 25;
+            player.position.y = 12;
             player.velocity.y = 0;
-        }*/
+        }
         
         if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsKeyPressed(KEY_SPACE))
         {
