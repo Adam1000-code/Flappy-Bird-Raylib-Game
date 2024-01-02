@@ -2,8 +2,8 @@
 #include <raylib.h>
 
 // this defines the screen. touch and you will die
-const int screenWidth = 800;
-const int screenHeight = 450;
+const int screenWidth = 1280;
+const int screenHeight = 720;
 
 const double playerX = 0;
 double playerY;
@@ -11,17 +11,12 @@ const double gameGravity = 2;
 
 void Player(Texture2D player, int y, double gravity)
 {
-    gravity = gameGravity;
     DrawTexture(player, 0, y, WHITE);
-}
-
-void pipes(int x, int y)
-{
 }
 
 int main()
 {
-    playerY = 0;
+    playerY = screenHeight;
     // but why aren't the screen width and height defined IN the main function?
     // don't ask why. js go with the flow
     InitWindow(screenWidth, screenHeight, "Flappy Boi");
@@ -35,7 +30,7 @@ int main()
     while(!WindowShouldClose())
     {
         BeginDrawing();
-            Player(playerSprite, playerY);
+            Player(playerSprite, playerY / 2, gameGravity);
         EndDrawing();
     }
     
