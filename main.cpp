@@ -10,10 +10,9 @@ struct Player
 
 int main()
 {
-    // timer variable js in case we need it for smthn
     //float deltaTime = GetFrameTime();
     
-    const int screenWidth = 800;
+    const double screenWidth = 800;
     const int screenHeight = 450;
     
     InitWindow(screenWidth, screenHeight, "Flappy Boi");
@@ -21,7 +20,7 @@ int main()
     Texture2D playerSprite = LoadTexture("player2.png");
     
     Player player;
-    player.position = {screenWidth / 2, screenHeight / 2};
+    player.position = {screenWidth / 2.2, screenHeight / 2};
     player.velocity = {0, 0};
     
     SetTargetFPS(60);
