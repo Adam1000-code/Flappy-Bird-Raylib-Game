@@ -38,9 +38,9 @@ int main()
             player.position.y = screenHeight - 40;
             player.velocity.y = 0;
         }
-        else if(player.position.y <= 12)
+        else if(player.position.y <= -55)
         {
-            player.position.y = 12;
+            player.position.y = -55;
             player.velocity.y = 0;
         }
         
