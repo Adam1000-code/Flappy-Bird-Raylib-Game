@@ -1,9 +1,6 @@
 #include <raylib.h>
 
-/*void Player(Texture2D player, int y, double gravity)
-{
-    playerY += gravity;
-}*/
+const float gravity = 0.2f;
 
 struct Player
 {
@@ -13,23 +10,36 @@ struct Player
 
 int main()
 {
-    float deltaTime = GetFrameTime();
+    // timer variable js in case we need it for smthn
+    //float deltaTime = GetFrameTime();
     
-    const int screenWidth = 1280;
-    const int screenHeight = 720;
-    
-    const float gravity;
+    const int screenWidth = 800;
+    const int screenHeight = 450;
     
     InitWindow(screenWidth, screenHeight, "Flappy Boi");
     
     Texture2D playerSprite = LoadTexture("player2.png");
     
+    Player player;
+    player.position = {screenWidth / 2, screenHeight / 2};
+    player.velocity = {0, 0};
+    
     SetTargetFPS(60);
     
     while(!WindowShouldClose())
     {
+        player.velocity.y += gravity;
+        player.position.y += player.velocity.y;
+        
+        if(player.position.y >= screenHeight - 25)
+        {
+            player.position.y = screenHeight - 25;
+            player.velocity.y = 0;
+        }
+        
         BeginDrawing();
-            DrawTexture(playerSprite, playerX / 2, playerY /2, WHITE);
+            ClearBackground(RAYWHITE);
+            DrawTexture(playerSprite, player.position.x, player.position.y, WHITE);
         EndDrawing();
     }
     
