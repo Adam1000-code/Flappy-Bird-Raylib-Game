@@ -2,6 +2,8 @@
 
 const float gravity = 0.2f;
 
+float jumpForce = (2.1f);
+
 const double screenWidth = 800;
 const double screenHeight = 450;
 
@@ -20,7 +22,7 @@ int main()
     Texture2D playerSprite = LoadTexture("player2.png");
     
     Player player;
-    player.position = {screenWidth / 2.3, screenHeight / 2.4};
+    player.position = {screenWidth / 2.3, screenHeight / 2.6};
     player.velocity = {0, 0};
     
     SetTargetFPS(60);
@@ -34,6 +36,11 @@ int main()
         {
             player.position.y = screenHeight - 25;
             player.velocity.y = 0;
+        }
+        
+        if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsKeyPressed(KEY_SPACE))
+        {
+            player.velocity.y -= jumpForce * gravity;
         }
         
         BeginDrawing();
