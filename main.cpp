@@ -38,6 +38,7 @@ int main()
         
         BeginDrawing();
             ClearBackground(RAYWHITE);
+            
             DrawTexture(playerSprite, player.position.x, player.position.y, WHITE);
         EndDrawing();
     }
