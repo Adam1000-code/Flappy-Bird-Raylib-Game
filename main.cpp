@@ -32,7 +32,6 @@ int main()
         player.velocity.y += gravity;
         player.position.y += player.velocity.y;
         
-        //collisions
         if(player.position.y >= screenHeight - 40)
         {
             player.position.y = screenHeight - 40;
