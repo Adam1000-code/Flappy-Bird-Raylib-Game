@@ -1,8 +1,8 @@
 #include <raylib.h>
 
-const float gravity = 0.2f;
+const float gravity = 0.3f;
 
-float jumpForce = 6.4f;
+float jumpForce = 4.0f;
 
 const double screenWidth = 800;
 const double screenHeight = 450;
@@ -45,7 +45,7 @@ int main()
         
         if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsKeyPressed(KEY_SPACE))
         {
-            player.velocity.y -= jumpForce;
+            player.velocity.y -= jumpForce / (gravity);
             player.position.y += player.velocity.y;
         }
         
