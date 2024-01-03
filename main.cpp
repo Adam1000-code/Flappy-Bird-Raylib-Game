@@ -43,7 +43,7 @@ int main()
             player.velocity.y = 0;
         }
         
-        // there's a small bug that has to be fixed. idk what it is yet
+        // there's a small bug that has to be fixed. idk what is yet
         if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || IsKeyPressed(KEY_SPACE))
         {
             player.velocity.y -= jumpForce / (gravity);
