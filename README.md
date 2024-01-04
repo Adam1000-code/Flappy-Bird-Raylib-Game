@@ -5,6 +5,5 @@ A game me and my team are creating using raylib
 - [x] add player struct
 - [x] add gravity
 - [x] implement player jump controls
-- [ ] fix jump bug
-- [ ] code player rotation
+- [ ] code player rotation(after core gameplay is done)
 - [ ] create pipes
