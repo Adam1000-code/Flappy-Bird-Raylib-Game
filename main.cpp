@@ -4,7 +4,7 @@ const float gravity = 0.3f;
 
 float jumpForce = 3.8f;
 
-const int screenWidth = 800;
+const int screenWidth = 800; // both should remain as ints
 const int screenHeight = 450;
 
 struct Player
