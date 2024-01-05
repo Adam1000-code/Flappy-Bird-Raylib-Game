@@ -48,7 +48,7 @@
 PLATFORM              ?= PLATFORM_DESKTOP
 
 # Define required raylib variables
-PROJECT_NAME          ?= raylib_examples
+PROJECT_NAME          ?= flappyboi
 RAYLIB_VERSION        ?= 5.0.0
 RAYLIB_PATH           ?= ..
 
