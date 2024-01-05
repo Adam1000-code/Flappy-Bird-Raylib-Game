@@ -428,7 +428,7 @@ endif
 # Define source code object files required
 #------------------------------------------------------------------------------------------------
 CORE = \
-    core/core_2d_camera \
+    #core/core_2d_camera \#
     core/core_2d_camera_mouse_zoom \
     core/core_2d_camera_platformer \
     core/core_2d_camera_split_screen \
