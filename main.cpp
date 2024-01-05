@@ -19,7 +19,7 @@ int main()
     
     InitWindow(screenWidth, screenHeight, "Flappy Boi");
     
-    Texture2D playerSprite = LoadTexture("player2.png");
+    Texture2D playerSprite = LoadTexture("resources/player2.png");
     
     Player player;
     player.position = {screenWidth / 2.3, screenHeight / 2.6};
