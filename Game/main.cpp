@@ -1,4 +1,5 @@
 #include <raylib.h>
+#include "pipes.hpp"
 
 const float gravity = 0.3f;
 
@@ -25,6 +26,8 @@ int main()
     player.position = {screenWidth / 2.3, screenHeight / 2.6};
     player.velocity = {0, 0};
     
+    Pipes pipes(screenWidth, 200.0f, screenWidth, screenHeight);
+    
     SetTargetFPS(60);
     
     while(!WindowShouldClose())
@@ -50,13 +53,15 @@ int main()
             player.position.y += player.velocity.y;
         }
         
+        Pipes::Move(screenWidth);
         BeginDrawing();
             ClearBackground(RAYWHITE);
-            
+            Pipes::Draw();
             DrawTexture(playerSprite, player.position.x, player.position.y, WHITE);
         EndDrawing();
     }
     
     UnloadTexture(playerSprite);
+    
     return 0;
 }
