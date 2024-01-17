@@ -9,8 +9,8 @@ const int screenHeight = 450;
 
 Vector2 topLeft;
 Vector2 bottomLeft;
-float width = 4;
-float gapHeight = 2;
+float width = 50.0f;
+float gapHeight = 150.0f;
 
 struct Player
 {
@@ -31,12 +31,12 @@ void Move(float x)
 
 void Pipes(float x, float pipeSpace, float screenWidth, float screenHeight)
 {
-    width = 50.0f;
-    gapHeight = 150.0f;
-                
-    topLeft = {x, 0};
-    bottomLeft = {x, screenHeight - gapHeight};
-
+    if(topLeft.x == 0 && bottomLeft.x == 0)
+    {
+        topLeft = {x, 0};
+        bottomLeft = {x, screenHeight - gapHeight};
+    }
+    
     Move(pipeSpace);
 
     if(topLeft.x + width < 0)
@@ -49,7 +49,7 @@ int main()
 {
     //float deltaTime = GetFrameTime();
     
-    InitWindow(screenWidth, screenHeight, "Flappy Boi");
+    InitWindow(screenWidth, screenHeight, "Flappy Clone");
     
     Texture2D topPipeTexture = LoadTexture("resources/pipe_u.png");
     Texture2D bottomPipeTexture = LoadTexture("resources/pipe_d.png");
@@ -57,13 +57,14 @@ int main()
     
     Player player;
     player.position = {screenWidth / 2.3, screenHeight / 2.6};
-    Pipes(screenWidth, 200.0f, screenWidth, screenHeight);
     player.velocity = {0, 0};
+    
+    Pipes(screenWidth, 20.0f, screenWidth, screenHeight); // originally 200.0f
     
     SetTargetFPS(60);
     
     while(!WindowShouldClose())
-    {
+    {   
         player.velocity.y += gravity;
         player.position.y += player.velocity.y;
         
