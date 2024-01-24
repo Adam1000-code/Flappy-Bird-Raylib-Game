@@ -10,7 +10,7 @@ const int screenHeight = 450;
 Vector2 topLeft;
 Vector2 bottomLeft;
 float width = 50.0f;
-float gapHeight = 150.0f;
+float gapHeight = 100.0f;
 
 struct Player
 {
@@ -18,30 +18,32 @@ struct Player
     Vector2 velocity;
 };
 
-void Move(float x)
+void Move(float x, float gapSpace)
 {
-    topLeft.x = x;
-    bottomLeft.x = x;
+    topLeft.x += x;
+    bottomLeft.x += x;
 
     if(topLeft.x + width < 0)
     {
-        Move(x + width + gapHeight);
+        topLeft.x += width + gapSpace;
+        bottomLeft.x += width + gapSpace;
     }
 }
 
 void Pipes(float x, float pipeSpace, float screenWidth, float screenHeight)
 {
+    pipeSpace = -2.0f;
     if(topLeft.x == 0 && bottomLeft.x == 0)
     {
         topLeft = {x, 0};
-        bottomLeft = {x, screenHeight - gapHeight};
+        bottomLeft = {x, screenHeight + gapHeight};
     }
     
-    Move(pipeSpace);
+    Move(pipeSpace, gapHeight * GetFrameTime());
 
     if(topLeft.x + width < 0)
     {
-        Move(screenWidth);
+        Move(screenWidth, gapHeight);
     }
 }
 
@@ -51,20 +53,19 @@ int main()
     
     InitWindow(screenWidth, screenHeight, "Flappy Clone");
     
-    Texture2D topPipeTexture = LoadTexture("resources/pipe_u.png");
-    Texture2D bottomPipeTexture = LoadTexture("resources/pipe_d.png");
+    Texture2D topPipeTexture = LoadTexture("resources/pipe_up.png");
+    Texture2D bottomPipeTexture = LoadTexture("resources/pipe_down.png");
     Texture2D playerSprite = LoadTexture("resources/player2.png");
     
     Player player;
     player.position = {screenWidth / 2.3, screenHeight / 2.6};
     player.velocity = {0, 0};
     
-    Pipes(screenWidth, 20.0f, screenWidth, screenHeight); // originally 200.0f
-    
     SetTargetFPS(60);
     
     while(!WindowShouldClose())
-    {   
+    {
+        Pipes(screenWidth, 200.0f, screenWidth, screenHeight); // originally 200.0f
         player.velocity.y += gravity;
         player.position.y += player.velocity.y;
         
@@ -86,7 +87,7 @@ int main()
             player.position.y += player.velocity.y;
         }
         
-        Move(screenWidth);
+        //Move(-2.0f, gapHeight * GetFrameTime());
         
         BeginDrawing();
             ClearBackground(RAYWHITE);
@@ -99,6 +100,8 @@ int main()
     UnloadTexture(topPipeTexture);
     UnloadTexture(bottomPipeTexture);
     UnloadTexture(playerSprite);
+    
+    CloseWindow();
     
     return 0;
 }
