@@ -58,8 +58,8 @@ int main()
     Texture2D playerSprite = LoadTexture("resources/player2.png");
     
     Player player;
-    player.position = {screenWidth / 2.3, screenHeight / 2.6};
-    player.velocity = {0, 0};
+    player.position = { screenWidth / 2.3, screenHeight / 2.6 };
+    player.velocity = { 0, 0 };
     
     SetTargetFPS(60);
     
