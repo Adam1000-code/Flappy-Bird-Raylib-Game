@@ -20,9 +20,9 @@ EXEC := polyflop
 # Platform specific flags and libraries
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
-	LDFLAGS := -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+    LDFLAGS := -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 else ifeq ($(UNAME_S),Darwin)
-	LDFLAGS := -lraylib -framework OpenGL -framework OpenAL -framework Cocoa
+    LDFLAGS := -lraylib -framework OpenGL -framework OpenAL -framework Cocoa
 endif
 
 # Build rule for object files
@@ -39,6 +39,3 @@ clean:
 
 # Phony targets
 .PHONY: all clean
-
-# Default target
-all: $(EXEC)

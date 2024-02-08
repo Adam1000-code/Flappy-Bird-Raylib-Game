@@ -50,12 +50,14 @@ void Pipes(float x, float pipeSpace, float screenWidth, float screenHeight)
 int main()
 {
     //float deltaTime = GetFrameTime();
+
+    //ChangeDirectory(GetDirectoryPath("game"));
     
     InitWindow(screenWidth, screenHeight, "Flappy Clone");
     
-    Texture2D topPipeTexture = LoadTexture("game/resources/pipe_up.png");
-    Texture2D bottomPipeTexture = LoadTexture("game/resources/pipe_down.png");
-    Texture2D playerSprite = LoadTexture("game/resources/player2.png");
+    Texture2D topPipeTexture = LoadTexture("resources/pipe_up.png");
+    Texture2D bottomPipeTexture = LoadTexture("resources/pipe_down.png");
+    Texture2D playerSprite = LoadTexture("resources/player2.png");
     
     Player player;
     player.position = { screenWidth / 2.3, screenHeight / 2.6 };
